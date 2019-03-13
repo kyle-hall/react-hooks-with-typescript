@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { render, getByTestId, fireEvent } from 'react-testing-library'
 
 import HookCounter from './HookCounter'
 
@@ -22,16 +23,13 @@ describe('HookCounter', () => {
     expect(wrapper.find('button').text()).toBe('+')
   })
 
-  it('should increment the counter on click', () => {
-    const wrapper = shallow(<HookCounter />)
+  it('should increment the counter', () => {
+    const { container } = render(<HookCounter />)
 
-    wrapper.find('button').simulate('click')
+    const increment = getByTestId(container, 'increment')
 
-    expect(
-      wrapper
-        .find('p')
-        .first()
-        .text()
-    ).toEqual('1')
+    fireEvent.click(increment)
+
+    expect(getByTestId(container, 'count-display').textContent).toBe('1')
   })
 })

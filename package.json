@@ -48,6 +48,7 @@
   ],
   "devDependencies": {
     "@types/enzyme": "^3.9.0",
-    "enzyme": "^3.9.0"
+    "enzyme": "^3.9.0",
+    "react-testing-library": "^6.0.0"
   }
 }

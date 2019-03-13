@@ -5,8 +5,13 @@ const HookCounter = () => {
 
   return (
     <div>
-      <p>{count}</p>
-      <button style={buttonStyle} onClick={() => setCount(count + 1)}>
+      <p data-testid={'count-display'}>{count}</p>
+      <button
+        data-testid={'increment'}
+        type="button"
+        style={buttonStyle}
+        onClick={() => setCount(count + 1)}
+      >
         +
       </button>
     </div>
